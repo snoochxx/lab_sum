@@ -1,51 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:padding="24dp">
+    android:padding="16dp"
+    tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/number1"
+        android:id="@+id/number1EditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Введите первое число"
-        android:inputType="numberDecimal|numberSigned"
-        android:background="@drawable/edit_text_background"
+        android:inputType="numberDecimal"
+        android:hint="Число 1"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
         android:padding="12dp"
-        android:textSize="20sp"
+        android:background="@drawable/edit_text_background"
+        app:layout_constraintWidth_percent="0.8"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/number2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Введите второе число"
-        android:inputType="numberDecimal|numberSigned"
-        android:background="@drawable/edit_text_background"
-        android:padding="12dp"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/number1"
+        app:layout_constraintBottom_toTopOf="@id/number2EditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+    <EditText
+        android:id="@+id/number2EditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Число 2"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        android:padding="12dp"
+        android:background="@drawable/edit_text_background"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintTop_toBottomOf="@id/number1EditText"
+        app:layout_constraintBottom_toTopOf="@id/calcButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        />
 
     <Button
-        android:id="@+id/btnCalculate"
+        android:id="@+id/calcButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Рассчитать"
-        style="@style/AppButtonStyle"
-        app:layout_constraintTop_toBottomOf="@id/number2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white"
+        android:paddingVertical="14dp"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintTop_toBottomOf="@id/number2EditText"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
-
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

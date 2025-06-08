@@ -17,8 +17,8 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        resultView = findViewById(R.id.resultText);
-        backButton = findViewById(R.id.btnBack);
+        resultView = findViewById(R.id.resultTextView);
+        backButton = findViewById(R.id.backButton);
 
         double number1 = getIntent().getDoubleExtra("number1", Double.NaN);
         double number2 = getIntent().getDoubleExtra("number2", Double.NaN);
@@ -40,7 +40,7 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        Button backButton = findViewById(R.id.btnBack);
+        Button backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(v -> finish());
     }
 }

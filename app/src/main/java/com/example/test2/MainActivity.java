@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editText1 = findViewById(R.id.number1);
-        editText2 = findViewById(R.id.number2);
-        calculateButton = findViewById(R.id.btnCalculate);
+        editText1 = findViewById(R.id.number1EditText);
+        editText2 = findViewById(R.id.number2EditText);
+        calculateButton = findViewById(R.id.calcButton);
 
         calculateButton.setOnClickListener(v -> {
             String num1Str = editText1.getText().toString().trim();
