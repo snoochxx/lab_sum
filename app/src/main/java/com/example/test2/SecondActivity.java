@@ -1,36 +1,46 @@
 package com.example.test2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity {
 
-    TextView resultText;
+    TextView resultView;
+    Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        resultText = findViewById(R.id.resultText);
+        resultView = findViewById(R.id.resultText);
+        backButton = findViewById(R.id.btnBack);
 
-        String num1Str = getIntent().getStringExtra("num1");
-        String num2Str = getIntent().getStringExtra("num2");
+        double number1 = getIntent().getDoubleExtra("number1", Double.NaN);
+        double number2 = getIntent().getDoubleExtra("number2", Double.NaN);
 
-        if (num1Str == null || num2Str == null || num1Str.trim().isEmpty() || num2Str.trim().isEmpty()) {
-            resultText.setText("Ошибка: числа не переданы");
-            return;
+        if (!Double.isNaN(number1) && !Double.isNaN(number2)) {
+            double sum = number1 + number2;
+            resultView.setText("Сумма: " + sum);
+        } else {
+            resultView.setText("Числа не переданы");
         }
 
-        try {
-            double num1 = Double.parseDouble(num1Str.trim());
-            double num2 = Double.parseDouble(num2Str.trim());
-            double sum = num1 + num2;
-            resultText.setText("Сумма: " + sum);
-        } catch (NumberFormatException e) {
-            resultText.setText("Ошибка ввода! Пожалуйста, введите корректные числа.");
-        }
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        Button backButton = findViewById(R.id.btnBack);
+        backButton.setOnClickListener(v -> finish());
     }
 }

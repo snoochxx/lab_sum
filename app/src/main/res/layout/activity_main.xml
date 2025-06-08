@@ -6,17 +6,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:padding="24dp">
 
     <EditText
         android:id="@+id/number1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:hint="Введите первое число"
         android:inputType="numberDecimal|numberSigned"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -25,24 +26,26 @@
         android:id="@+id/number2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:hint="Введите второе число"
         android:inputType="numberDecimal|numberSigned"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/number1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
 
     <Button
         android:id="@+id/btnCalculate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Calculate"
-        android:textSize="24sp"
+        android:text="Рассчитать"
+        style="@style/AppButtonStyle"
         app:layout_constraintTop_toBottomOf="@id/number2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
